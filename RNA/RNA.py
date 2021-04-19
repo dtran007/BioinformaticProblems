@@ -7,15 +7,16 @@ import sys
 fname = sys.argv[-1]
 
 f = open(fname, "r")
+try:
+    instring = f.readline()
 
-instring = f.readline()
+    RNA=""
 
-RNA=""
-
-for i in range(0, len(instring)):
-    if instring[i] == 'T':
-        RNA += 'U'
-    else:
-        RNA += instring[i]
-
+    for i in range(0, len(instring)):
+        if instring[i] == 'T':
+            RNA += 'U'
+        else:
+            RNA += instring[i]
+finally:
+    f.close()
 print(RNA)

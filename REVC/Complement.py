@@ -10,22 +10,25 @@ import sys
 fname = sys.argv[-1]
 
 f = open(fname, "r")
+try:
+    instring = f.readline()
 
-instring = f.readline()
+    Comp = ""
 
-Comp = ""
+    for i in range(0, len(instring)):
+        if instring[i] == 'A':
+            Comp += 'T'
+        elif instring[i] == 'T':
+            Comp += 'A'
+        elif instring[i] == 'C':
+            Comp += 'G'
+        elif instring[i] == 'G':
+            Comp += 'C'
 
-for i in range(0, len(instring)):
-    if instring[i] == 'A':
-        Comp += 'T'
-    elif instring[i] == 'T':
-        Comp += 'A'
-    elif instring[i] == 'C':
-        Comp += 'G'
-    elif instring[i] == 'G':
-        Comp += 'C'
+    revComp = Comp[::-1]
 
-revComp = Comp[::-1]
+finally:
+    f.close()
 
 print(revComp)
 
